@@ -5,7 +5,6 @@
     "no-var": "error",
     "@typescript-eslint/no-unused-vars": "error",
     "semi": "off",
-    "sort-imports": "error",
     "no-unused-vars": "off",
     "no-console": "warn",
     "camelcase": "error",
