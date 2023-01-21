@@ -8,7 +8,6 @@
     "sort-imports": "error",
     "no-unused-vars": "error",
     "no-console": "warn",
-    "camelcase": "error",
-    "no-magic-numbers": "error"
+    "camelcase": "error"
   }
 }

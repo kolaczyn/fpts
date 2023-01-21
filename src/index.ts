@@ -1,1 +1,1 @@
-console.log('hello world')
+export { pipe } from './pipe/pipe'
