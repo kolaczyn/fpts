@@ -14,3 +14,5 @@ export const maybeCatch = <T>(fn: () => T) => {
     return none
   }
 }
+
+export const unwrapOr = <T>(maybe: Maybe<T>, fallback: T) => (isSome(maybe) ? maybe.some : fallback)
