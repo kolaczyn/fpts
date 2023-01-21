@@ -8,6 +8,7 @@
     "sort-imports": "error",
     "no-unused-vars": "off",
     "no-console": "warn",
-    "camelcase": "error"
+    "camelcase": "error",
+    "prefer-const": "error"
   }
 }

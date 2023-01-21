@@ -1,5 +1,5 @@
-import { pipe } from '../pipe/pipe'
-import { range } from '../range/range'
+import { pipe } from '../../pipe/pipe'
+import { range } from '../../range/range'
 
 export const fizzBuzz = () =>
   range(100)
