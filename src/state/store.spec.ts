@@ -36,23 +36,21 @@ const gameReducer = (state: GameState, action: Action): GameState => {
   return state
 }
 
-describe('state', () => {
-  test('putting into state', () => {
-    const initialState: GameState = {
-      playerName: 'Paweł',
-      score: 4,
-    }
+test('store', () => {
+  const initialState: GameState = {
+    playerName: 'Paweł',
+    score: 4,
+  }
 
-    const game0 = store(initialState, gameReducer)
-    expect(game0.getState()).toEqual({ playerName: 'Paweł', score: 4 })
+  let gameStore = store(initialState, gameReducer)
+  expect(gameStore.getState()).toEqual({ playerName: 'Paweł', score: 4 })
 
-    const game1 = game0.dispatch({ type: 'increment' })
-    expect(game1.getState()).toEqual({ playerName: 'Paweł', score: 5 })
+  gameStore = gameStore.dispatch({ type: 'increment' })
+  expect(gameStore.getState()).toEqual({ playerName: 'Paweł', score: 5 })
 
-    const game2 = game1.dispatch({ type: 'decrement-by', payload: 10 })
-    expect(game2.getState()).toEqual({ playerName: 'Paweł', score: -5 })
+  gameStore = gameStore.dispatch({ type: 'decrement-by', payload: 10 })
+  expect(gameStore.getState()).toEqual({ playerName: 'Paweł', score: -5 })
 
-    const game3 = game2.dispatch({ type: 'to-zero' })
-    expect(game3.getState()).toEqual({ playerName: 'Paweł', score: 0 })
-  })
+  gameStore = gameStore.dispatch({ type: 'to-zero' })
+  expect(gameStore.getState()).toEqual({ playerName: 'Paweł', score: 0 })
 })
