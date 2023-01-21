@@ -1,4 +1,4 @@
-import { Maybe, isNone, isSome } from './maybe'
+import { Maybe, isNone, isSome, maybeCatch } from './maybe'
 import { none } from '../primitives/none'
 import { some } from '../primitives/some'
 
@@ -35,5 +35,13 @@ describe('maybe', () => {
       // @ts-expect-error: you shouldn't be able to access the field without checking
       maybe.some
     }
+  })
+
+  test('maybeCatch', () => {
+    const fn = () => {
+      throw new Error('error')
+    }
+    expect(maybeCatch(fn)).toEqual(none)
+    expect(maybeCatch(() => 39)).toEqual(some(39))
   })
 })

@@ -1,7 +1,7 @@
-export type Error = {
-  error: string
+export type Err = {
+  err: string
 }
 
-export const error = (reason: string) => ({
-  error: reason,
+export const err = (reason: string): Err => ({
+  err: reason,
 })
