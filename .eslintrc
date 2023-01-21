@@ -1,0 +1,14 @@
+{
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "plugins": ["jest"],
+  "rules": {
+    "no-var": "error",
+    "@typescript-eslint/no-unused-vars": "off",
+    "semi": "off",
+    "sort-imports": "error",
+    "no-unused-vars": "error",
+    "no-console": "warn",
+    "camelcase": "error",
+    "no-magic-numbers": "error"
+  }
+}
