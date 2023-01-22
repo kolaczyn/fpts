@@ -1,4 +1,4 @@
-import { isNone, Maybe, pipe } from '../..'
+import { isNone, none } from '../..'
 import { arrayAt } from '../../arrayAt/arrayAt'
 
 const cpuAnswers = {
@@ -32,7 +32,7 @@ const initState = (correctAnswer: number): GameState => ({
   turns: [],
 })
 
-const getAnswerFromCpu = (gameState: GameState) => {
+const _getAnswerFromCpu = (gameState: GameState) => {
   const lastTurn = arrayAt(gameState.turns, -1)
   if (isNone(lastTurn)) {
     return cpuAnswers.youShouldAskFirst
@@ -44,9 +44,9 @@ const getAnswerFromCpu = (gameState: GameState) => {
   if (gameState.correctAnswer > lastTurnGuess) return cpuAnswers.tooLow
 }
 
-const gameLoop = (gameState: GameState) => {}
+const _gameLoop = (_gameState: GameState) => none
 
 export const guessingGame = () => {
   const correctAnswer = 42
-  const gameState: GameState = initState(correctAnswer)
+  const _gameState: GameState = initState(correctAnswer)
 }
