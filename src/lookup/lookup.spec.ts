@@ -1,6 +1,6 @@
-import { none } from '../../primitives/none'
-import { some } from '../../primitives/some'
-import { lookup, Lookup } from './lookup'
+import { none } from '../primitives/none'
+import { some } from '../primitives/some'
+import { lookup } from './lookup'
 
 test('lookup', () => {
   const exampleLookup0 = lookup<string>({})
