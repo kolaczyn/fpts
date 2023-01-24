@@ -14,7 +14,7 @@
     "types:check": "tsc --noEmit",
     "lint:check": "eslint src",
     "lint:fix": "eslint src --fix",
-    "test": "jest",
+    "test": "jest --coverage",
     "test:watch": "jest --watch",
     "check-all": "yarn format:check && yarn lint:check && yarn check-types && yarn test",
     "build:package": "rimraf lib && yarn build:esm && yarn build:umd && yarn build:commonjs",

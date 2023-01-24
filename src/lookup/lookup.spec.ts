@@ -12,8 +12,11 @@ test('lookup', () => {
   })
 
   expect(exampleLookup1.getOr('foo', 'bar')).toEqual('bar')
+  expect(exampleLookup1.getOr('hello', 'bar')).toEqual('world')
 
   expect(exampleLookup1.get('hello')).toEqual(some('world'))
-  const exampleLookup2 = exampleLookup1.remove('hello')
-  expect(exampleLookup2.get('hello')).toEqual(none)
+  expect(exampleLookup1.get('hello')).toEqual(some('world'))
+  const exampleLookup2 = exampleLookup1.set('foo', 'bar')
+  const exampleLookup3 = exampleLookup2.remove('hello')
+  expect(exampleLookup3.get('hello')).toEqual(none)
 })

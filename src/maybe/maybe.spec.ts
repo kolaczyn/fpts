@@ -1,4 +1,4 @@
-import { Maybe, isNone, isSome, maybeCatch, unwrapOr } from './maybe'
+import { Maybe, isNone, isSome, maybeCatch, unwrapOr, toSome } from './maybe'
 import { none } from '../primitives/none'
 import { some } from '../primitives/some'
 
@@ -48,5 +48,9 @@ describe('maybe', () => {
   test('unwrap or', () => {
     expect(unwrapOr(some(6), 9)).toEqual(6)
     expect(unwrapOr(none, 9)).toEqual(9)
+  })
+
+  test('dumb tests to hit 100% coverage', () => {
+    expect(toSome(21)).toEqual(some(21))
   })
 })
