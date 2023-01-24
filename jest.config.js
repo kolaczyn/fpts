@@ -1,7 +1,5 @@
-/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
+/** @type {import('jest').Config} */
 module.exports = {
-  preset: 'ts-jest',
-  testEnvironment: 'node',
   modulePathIgnorePatterns: ['dist'],
   collectCoverageFrom: [
     '<rootDir>/src/**/*',
@@ -16,5 +14,8 @@ module.exports = {
       lines: 100,
       statements: 100,
     },
+  },
+  transform: {
+    '^.+\\.(t|j)sx?$': ['@swc/jest'],
   },
 }

@@ -1,6 +1,6 @@
 import { err } from '../primitives/error'
 import { ok } from '../primitives/ok'
-import { isErr, resultCatch, toOk } from './result'
+import { isErr, isOk, resultCatch, toOk } from './result'
 
 describe('result', () => {
   test('ok', () => {
@@ -43,6 +43,7 @@ describe('result', () => {
   describe('dumb tests to reach 100% test coverage :p', () => {
     expect(isErr(err('lol error'))).toEqual(true)
     expect(isErr(ok(69))).toEqual(false)
+    expect(isOk(ok(69))).toEqual(true)
     expect(toOk('loli')).toEqual(ok('loli'))
   })
 })
