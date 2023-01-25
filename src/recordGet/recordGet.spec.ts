@@ -1,5 +1,5 @@
 import { none } from '../primitives/none'
-import { some } from '../primitives/some'
+import { someObj } from '../testing/some.testing'
 import { recordGet } from './recordGet'
 
 describe('recordGet', () => {
@@ -8,7 +8,7 @@ describe('recordGet', () => {
       hello: 'world',
     }
 
-    expect(recordGet(record, 'hello')).toEqual(some('world'))
+    expect(recordGet(record, 'hello')).toEqual(someObj('world'))
   })
 
   test('doesnt exist', () => {

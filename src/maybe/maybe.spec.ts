@@ -1,6 +1,7 @@
 import { Maybe, isNone, isSome, maybeCatch, unwrapOr, toSome, normalizeMaybe } from './maybe'
 import { none } from '../primitives/none'
 import { some } from '../primitives/some'
+import { someObj } from '../testing/some.testing'
 
 const getExampleSome = (): Maybe<number> => some(13)
 const getExampleNone = (): Maybe<number> => none
@@ -42,7 +43,7 @@ describe('maybe', () => {
       throw new Error('error')
     }
     expect(maybeCatch(fn)).toEqual(none)
-    expect(maybeCatch(() => 39)).toEqual(some(39))
+    expect(maybeCatch(() => 39)).toMatchObject(someObj(39))
   })
 
   test('unwrap or', () => {
@@ -51,15 +52,17 @@ describe('maybe', () => {
   })
 
   test('dumb tests to hit 100% coverage', () => {
-    expect(toSome(21)).toEqual(some(21))
+    expect(toSome(21)).toMatchObject(someObj(21))
   })
 
   test('normalize maybe', () => {
-    expect(normalizeMaybe(some(21))).toEqual(some(21))
-    expect(normalizeMaybe(some(null))).toEqual(some(null))
-    expect(normalizeMaybe(null)).toEqual(some(null))
-    expect(normalizeMaybe(none)).toEqual(none)
-    expect(normalizeMaybe(21)).toEqual(some(21))
-    expect(normalizeMaybe({ hello: 'world' })).toEqual(some({ hello: 'world' }))
+    expect(normalizeMaybe(some(21))).toMatchObject(someObj(21))
+    expect(normalizeMaybe(some(null))).toMatchObject(someObj(null))
+
+    expect(normalizeMaybe(null)).toMatchObject(someObj(null))
+    expect(normalizeMaybe(none)).toMatchObject(none)
+    expect(normalizeMaybe(21)).toMatchObject(someObj(21))
+
+    expect(normalizeMaybe({ hello: 'world' })).toMatchObject(someObj({ hello: 'world' }))
   })
 })
