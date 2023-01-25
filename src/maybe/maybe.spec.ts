@@ -1,4 +1,4 @@
-import { Maybe, isNone, isSome, maybeCatch, unwrapOr, toSome } from './maybe'
+import { Maybe, isNone, isSome, maybeCatch, unwrapOr, toSome, normalizeMaybe } from './maybe'
 import { none } from '../primitives/none'
 import { some } from '../primitives/some'
 
@@ -52,5 +52,14 @@ describe('maybe', () => {
 
   test('dumb tests to hit 100% coverage', () => {
     expect(toSome(21)).toEqual(some(21))
+  })
+
+  test('normalize maybe', () => {
+    expect(normalizeMaybe(some(21))).toEqual(some(21))
+    expect(normalizeMaybe(some(null))).toEqual(some(null))
+    expect(normalizeMaybe(null)).toEqual(some(null))
+    expect(normalizeMaybe(none)).toEqual(none)
+    expect(normalizeMaybe(21)).toEqual(some(21))
+    expect(normalizeMaybe({ hello: 'world' })).toEqual(some({ hello: 'world' }))
   })
 })
