@@ -1,23 +1,21 @@
-import { arrayAt, Maybe, pipe, some, unwrapOr } from '../..'
-import { arrayFind } from '../../arr/arrFind/arrFind'
-import { get } from '../../record/get/get'
+import { arrAt, arrFind, get, Maybe, pipe, some, unwrapOr } from '../..'
 import { dbInvoices, dbUsers } from './db'
 import { Invoice, User } from './types'
 
 const getAllUsersFromDb = (): Maybe<User[]> => some(dbUsers)
 const getUserById = (id: User['id']) =>
-  getAllUsersFromDb().bind(users => arrayFind(users, user => user.id === id))
+  getAllUsersFromDb().bind(users => arrFind(users, user => user.id === id))
 
 const getAllInvoicesFromDb = (): Maybe<Invoice[]> => some(dbInvoices)
 const getInvoiceById = (id: string): Maybe<Invoice> =>
   getAllInvoicesFromDb().bind(invoices =>
-    arrayFind(invoices, invoice => invoice.id === id)
+    arrFind(invoices, invoice => invoice.id === id)
   )
 
 export const getLatestUserInvoiceAmount = (userId: number) =>
   getUserById(userId)
     .map(get('invoices'))
-    .bind(invoices => arrayAt(invoices, 0))
+    .bind(invoices => arrAt(invoices, 0))
     .bind(invoiceId => getInvoiceById(invoiceId))
     .map(get('amount'))
 

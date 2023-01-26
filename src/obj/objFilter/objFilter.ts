@@ -1,4 +1,4 @@
-export const filterObject = <K extends string, V>(
+export const objFilter = <K extends string, V>(
   obj: Record<K, V>,
   predicate: (v: V) => boolean
 ): Record<string, V> =>

@@ -1,13 +1,13 @@
 import { noneObj, someObj } from '../..'
-import { recordGet } from './recordGet'
+import { objGet } from './objGet'
 
-describe('recordGet', () => {
+describe('objGet', () => {
   test('field exists', () => {
     const record = {
       hello: 'world',
     }
 
-    expect(recordGet(record, 'hello')).toEqual(someObj('world'))
+    expect(objGet(record, 'hello')).toEqual(someObj('world'))
   })
 
   test('doesnt exist', () => {
@@ -15,6 +15,6 @@ describe('recordGet', () => {
       hello: 'world',
     }
 
-    expect(recordGet(record, 'koko')).toMatchObject(noneObj())
+    expect(objGet(record, 'koko')).toMatchObject(noneObj())
   })
 })
