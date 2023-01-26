@@ -1,4 +1,3 @@
-import { none } from '../primitives/none'
 import { noneObj } from '../testing/none-testing'
 import { someObj } from '../testing/some.testing'
 import { toNumber } from './toNumber'

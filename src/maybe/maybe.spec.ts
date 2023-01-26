@@ -68,13 +68,13 @@ describe('maybe', () => {
     expect(normalizeMaybe({ hello: 'world' })).toMatchObject(someObj({ hello: 'world' }))
   })
 
-  describe('bind', () => {
-    test('ok', () => {
+  describe('bind & map', () => {
+    test('some at the end', () => {
       const lol = some(99).map(x => x + 1)
       expect(lol).toMatchObject(someObj(100))
     })
 
-    test('ok', () => {
+    test('none at the end', () => {
       const lol = some('100')
         .map(x => `${x}--`)
         .bind(x => toNumber(x))

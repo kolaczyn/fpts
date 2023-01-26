@@ -1,4 +1,3 @@
-import { none } from '..'
 import { noneObj } from '../testing/none-testing'
 import { someObj } from '../testing/some.testing'
 import { arrayAt } from './arrayAt'

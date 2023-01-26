@@ -13,7 +13,6 @@
     "format:check": "prettier -c src",
     "types:check": "tsc --noEmit",
     "lint:check": "eslint src",
-    "lint:fix": "eslint src --fix",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
     "check-all": "yarn format:check && yarn lint:check && yarn check-types && yarn test",

@@ -1,4 +1,3 @@
-import { none } from '../primitives/none'
 import { noneObj } from '../testing/none-testing'
 import { someObj } from '../testing/some.testing'
 import { recordGet } from './recordGet'
@@ -13,7 +12,7 @@ describe('recordGet', () => {
   })
 
   test('doesnt exist', () => {
-    const record = {
+    const record: Record<string, string> = {
       hello: 'world',
     }
 
