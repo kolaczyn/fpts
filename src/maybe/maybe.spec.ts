@@ -1,9 +1,12 @@
-import { Maybe, isNone, isSome, maybeCatch, unwrapOr, toSome } from './maybe'
+import { Maybe, isNone, isSome, maybeCatch, unwrapOr, toSome, normalizeMaybe } from './maybe'
 import { none } from '../primitives/none'
 import { some } from '../primitives/some'
+import { someObj } from '../testing/some.testing'
+import { toNumber } from '../toNumber/toNumber'
+import { noneObj } from '../testing/none-testing'
 
 const getExampleSome = (): Maybe<number> => some(13)
-const getExampleNone = (): Maybe<number> => none
+const getExampleNone = (): Maybe<number> => none()
 
 describe('maybe', () => {
   test('accessing fields in TypeScript', () => {
@@ -41,16 +44,46 @@ describe('maybe', () => {
     const fn = () => {
       throw new Error('error')
     }
-    expect(maybeCatch(fn)).toEqual(none)
-    expect(maybeCatch(() => 39)).toEqual(some(39))
+    expect(maybeCatch(fn)).toMatchObject(noneObj())
+    expect(maybeCatch(() => 39)).toMatchObject(someObj(39))
   })
 
   test('unwrap or', () => {
     expect(unwrapOr(some(6), 9)).toEqual(6)
-    expect(unwrapOr(none, 9)).toEqual(9)
+    expect(unwrapOr(none(), 9)).toEqual(9)
   })
 
   test('dumb tests to hit 100% coverage', () => {
-    expect(toSome(21)).toEqual(some(21))
+    expect(toSome(21)).toMatchObject(someObj(21))
+  })
+
+  test('normalize maybe', () => {
+    expect(normalizeMaybe(some(21))).toMatchObject(someObj(21))
+    expect(normalizeMaybe(some(null))).toMatchObject(someObj(null))
+
+    expect(normalizeMaybe(null)).toMatchObject(someObj(null))
+    expect(normalizeMaybe(none())).toMatchObject(noneObj())
+    expect(normalizeMaybe(21)).toMatchObject(someObj(21))
+
+    expect(normalizeMaybe({ hello: 'world' })).toMatchObject(someObj({ hello: 'world' }))
+  })
+
+  describe('bind & map', () => {
+    test('some at the end', () => {
+      const lol = some(99).map(x => x + 1)
+      expect(lol).toMatchObject(someObj(100))
+    })
+
+    test('none at the end', () => {
+      const lol = some('100')
+        .bind(x => some(x + 1))
+        .map(x => `${x}--`)
+        .bind(x => toNumber(x))
+        .map(x => `->${x}`)
+        .bind(_ => none())
+        .map(x => x)
+
+      expect(lol).toMatchObject(noneObj())
+    })
   })
 })
