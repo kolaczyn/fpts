@@ -1,4 +1,12 @@
-import { Maybe, isNone, isSome, maybeCatch, unwrapOr, toSome, normalizeMaybe } from './maybe'
+import {
+  Maybe,
+  isNone,
+  isSome,
+  maybeCatch,
+  unwrapOr,
+  toSome,
+  normalizeMaybe,
+} from './maybe'
 import { none } from '../primitives/none'
 import { some } from '../primitives/some'
 import { someObj } from '../testing/some.testing'
@@ -65,7 +73,9 @@ describe('maybe', () => {
     expect(normalizeMaybe(none())).toMatchObject(noneObj())
     expect(normalizeMaybe(21)).toMatchObject(someObj(21))
 
-    expect(normalizeMaybe({ hello: 'world' })).toMatchObject(someObj({ hello: 'world' }))
+    expect(normalizeMaybe({ hello: 'world' })).toMatchObject(
+      someObj({ hello: 'world' })
+    )
   })
 
   describe('bind & map', () => {

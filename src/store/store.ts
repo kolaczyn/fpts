@@ -3,7 +3,10 @@ export type Action = {
   payload?: unknown
 }
 
-export type Reducer<TState, TAction extends Action> = (prevState: TState, action: TAction) => TState
+export type Reducer<TState, TAction extends Action> = (
+  prevState: TState,
+  action: TAction
+) => TState
 
 export type Store<TState, TAction extends Action> = {
   getState: () => TState
