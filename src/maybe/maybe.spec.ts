@@ -76,8 +76,12 @@ describe('maybe', () => {
 
     test('none at the end', () => {
       const lol = some('100')
+        .bind(x => some(x + 1))
         .map(x => `${x}--`)
         .bind(x => toNumber(x))
+        .map(x => `->${x}`)
+        .bind(_ => none())
+        .map(x => x)
 
       expect(lol).toMatchObject(noneObj())
     })
