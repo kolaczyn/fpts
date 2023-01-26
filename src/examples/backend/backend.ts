@@ -1,13 +1,13 @@
-import { arrAt, arrFind, get, Maybe, pipe, some, unwrapOr } from '../..'
+import { arrAt, arrFind, get, Option, pipe, some, unwrapOr } from '../..'
 import { dbInvoices, dbUsers } from './db'
 import { Invoice, User } from './types'
 
-const getAllUsersFromDb = (): Maybe<User[]> => some(dbUsers)
+const getAllUsersFromDb = (): Option<User[]> => some(dbUsers)
 const getUserById = (id: User['id']) =>
   getAllUsersFromDb().bind(users => arrFind(users, user => user.id === id))
 
-const getAllInvoicesFromDb = (): Maybe<Invoice[]> => some(dbInvoices)
-const getInvoiceById = (id: string): Maybe<Invoice> =>
+const getAllInvoicesFromDb = (): Option<Invoice[]> => some(dbInvoices)
+const getInvoiceById = (id: string): Option<Invoice> =>
   getAllInvoicesFromDb().bind(invoices =>
     arrFind(invoices, invoice => invoice.id === id)
   )

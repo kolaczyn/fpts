@@ -1,11 +1,11 @@
-import { isSome, Maybe, objGet } from '../..'
+import { isSome, Option, objGet } from '../..'
 
 type Fn = (n: number) => number
 
 export const memoize = (fn: Fn): Fn => {
   const memo: Record<number, number> = {}
   const cachedFn = (num: number) => {
-    const fromCache = objGet(memo, num) as Maybe<number>
+    const fromCache = objGet(memo, num) as Option<number>
     if (isSome(fromCache)) {
       return fromCache.some
     }

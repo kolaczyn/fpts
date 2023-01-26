@@ -1,8 +1,8 @@
-import { Maybe, none, pipe, some } from '../..'
+import { Option, none, pipe, some } from '../..'
 
 export type Lookup<T> = {
   set: (key: string, value: T) => Lookup<T>
-  get: (key: string) => Maybe<T>
+  get: (key: string) => Option<T>
   getOr: (key: string, fallback: T) => T
   remove: (key: string) => Lookup<T>
   getAll: () => Record<string, T>

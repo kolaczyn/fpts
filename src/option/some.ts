@@ -1,10 +1,10 @@
-import { isSome, Maybe } from './maybe'
+import { isSome, Option } from './option'
 import { none } from './none'
 
 export type Some<T> = {
   some: T
-  bind: <U>(fn: (t: T) => Maybe<U>) => Maybe<U>
-  map: <U>(fn: (t: T) => U) => Maybe<U>
+  bind: <U>(fn: (t: T) => Option<U>) => Option<U>
+  map: <U>(fn: (t: T) => U) => Option<U>
 }
 
 export const some = <T>(payload: T): Some<T> => ({

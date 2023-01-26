@@ -1,6 +1,6 @@
-import { Maybe, none, some } from '../..'
+import { Option, none, some } from '../..'
 
-export const arrAt = <T>(arr: T[], index: number): Maybe<T> => {
+export const arrAt = <T>(arr: T[], index: number): Option<T> => {
   const element = arr.at(index)
   return element === undefined ? none() : some(element)
 }

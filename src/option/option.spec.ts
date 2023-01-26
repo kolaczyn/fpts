@@ -1,22 +1,22 @@
 import {
-  Maybe,
+  Option,
   isNone,
   isSome,
   maybeCatch,
   unwrapOr,
   toSome,
   normalizeMaybe,
-} from './maybe'
+} from './option'
 import { none } from './none'
 import { some } from './some'
 import { someObj } from '../test/some.testing'
 import { toNum } from '../str/toNum/toNum'
 import { noneObj } from '../test/none-testing'
 
-const getExampleSome = (): Maybe<number> => some(13)
-const getExampleNone = (): Maybe<number> => none()
+const getExampleSome = (): Option<number> => some(13)
+const getExampleNone = (): Option<number> => none()
 
-describe('maybe', () => {
+describe('option', () => {
   test('accessing fields in TypeScript', () => {
     const maybe = getExampleSome()
 
