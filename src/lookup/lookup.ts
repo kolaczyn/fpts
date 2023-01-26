@@ -23,7 +23,7 @@ const removeEntryFromRecord = <T>(key: string, record: Record<string, T>) =>
     )
 
 export const lookup = <T>(record: Record<string, T>): Lookup<T> => ({
-  get: (key: string) => (key in record ? some(record[key]) : none),
+  get: (key: string) => (key in record ? some(record[key]) : none()),
   getOr: (key: string, fallback: T) => (key in record ? record[key] : fallback),
   getAll: () => record,
   set: (key: string, value: T) => lookup({ ...record, [key]: value }),

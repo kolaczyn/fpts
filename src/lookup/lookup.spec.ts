@@ -1,4 +1,5 @@
 import { none } from '../primitives/none'
+import { noneObj } from '../testing/none-testing'
 import { someObj } from '../testing/some.testing'
 import { lookup } from './lookup'
 
@@ -18,5 +19,5 @@ test('lookup', () => {
   expect(exampleLookup1.get('hello')).toMatchObject(someObj('world'))
   const exampleLookup2 = exampleLookup1.set('foo', 'bar')
   const exampleLookup3 = exampleLookup2.remove('hello')
-  expect(exampleLookup3.get('hello')).toMatchObject(none)
+  expect(exampleLookup3.get('hello')).toMatchObject(noneObj())
 })

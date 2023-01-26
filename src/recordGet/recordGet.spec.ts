@@ -1,4 +1,5 @@
 import { none } from '../primitives/none'
+import { noneObj } from '../testing/none-testing'
 import { someObj } from '../testing/some.testing'
 import { recordGet } from './recordGet'
 
@@ -16,6 +17,6 @@ describe('recordGet', () => {
       hello: 'world',
     }
 
-    expect(recordGet(record, 'koko')).toEqual(none)
+    expect(recordGet(record, 'koko')).toMatchObject(noneObj())
   })
 })

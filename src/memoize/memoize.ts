@@ -1,10 +1,12 @@
-import { isSome } from '../maybe/maybe'
+import { isSome, Maybe } from '../maybe/maybe'
 import { recordGet } from '../recordGet/recordGet'
 
-export const memoize = (fn: (n: number) => number): ((n: number) => number) => {
+type Fn = (n: number) => number
+
+export const memoize = (fn: Fn): Fn => {
   const memo: Record<number, number> = {}
-  return (num: number) => {
-    const fromCache = recordGet(memo, num)
+  const cachedFn = (num: number) => {
+    const fromCache = recordGet(memo, num) as Maybe<number>
     if (isSome(fromCache)) {
       return fromCache.some
     }
@@ -12,4 +14,5 @@ export const memoize = (fn: (n: number) => number): ((n: number) => number) => {
     memo[num] = value
     return value
   }
+  return cachedFn
 }

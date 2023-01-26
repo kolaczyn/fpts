@@ -1,9 +1,17 @@
+import { isSome, Maybe } from '../maybe/maybe'
+import { none } from './none'
+
 export type Some<T> = {
   some: T
-  bind: () => 'bind'
+  bind: <U>(fn: (t: T) => Maybe<U>) => Maybe<U>
+  map: <U>(fn: (t: T) => U) => Maybe<U>
 }
 
 export const some = <T>(payload: T): Some<T> => ({
   some: payload,
-  bind: () => 'bind',
+  map: fn => some(fn(payload)),
+  bind: fn => {
+    const result = fn(payload)
+    return isSome(result) ? result : none()
+  },
 })

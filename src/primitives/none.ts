@@ -1,9 +1,13 @@
-export type None = {
+import { Maybe } from '../maybe/maybe'
+
+export type None<T> = {
   none: 'none'
-  bind: () => 'bind'
+  bind: <U>(fn: (t: T) => Maybe<U>) => Maybe<U>
+  map: <U>(fn: (t: T) => U) => Maybe<U>
 }
 
-export const none: None = {
+export const none = <T>(): None<T> => ({
   none: 'none',
-  bind: () => 'bind',
-}
+  bind: _fn => none(),
+  map: _fn => none(),
+})

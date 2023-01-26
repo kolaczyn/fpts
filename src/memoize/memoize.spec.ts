@@ -5,16 +5,16 @@ test('memoize', () => {
 
   const memoizedFn = memoize(fn)
 
-  expect(memoizedFn).not.toHaveBeenCalled()
+  expect(fn).not.toHaveBeenCalled()
 
   expect(memoizedFn(4)).toEqual(8)
-  expect(memoizedFn).toHaveBeenCalledTimes(1)
-  expect(memoizedFn).toHaveBeenLastCalledWith(4)
+  expect(fn).toHaveBeenCalledTimes(1)
+  expect(fn).toHaveBeenLastCalledWith(4)
 
   expect(memoizedFn(4)).toEqual(8)
-  expect(memoizedFn).toHaveBeenCalledTimes(1)
+  expect(fn).toHaveBeenCalledTimes(1)
 
   expect(memoizedFn(100)).toEqual(200)
-  expect(memoizedFn).toHaveBeenCalledTimes(2)
-  expect(memoizedFn).toHaveBeenLastCalledWith(100)
+  expect(fn).toHaveBeenCalledTimes(2)
+  expect(fn).toHaveBeenLastCalledWith(100)
 })

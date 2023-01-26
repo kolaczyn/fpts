@@ -1,4 +1,5 @@
 import { none } from '../primitives/none'
+import { noneObj } from '../testing/none-testing'
 import { someObj } from '../testing/some.testing'
 import { toNumber } from './toNumber'
 
@@ -8,6 +9,6 @@ describe('to number', () => {
   })
 
   test('non-number string', () => {
-    expect(toNumber('dlafjks')).toEqual(none)
+    expect(toNumber('dlafjks')).toEqual(noneObj())
   })
 })
