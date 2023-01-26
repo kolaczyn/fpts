@@ -1,5 +1,5 @@
-import { None, none } from '../primitives/none'
-import { Some, some } from '../primitives/some'
+import { None, none } from './none'
+import { Some, some } from './some'
 
 export type Maybe<T> = Some<T> | None<T>
 

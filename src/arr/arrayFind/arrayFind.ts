@@ -1,4 +1,4 @@
-import { some, none, Maybe } from '..'
+import { some, none, Maybe } from '../..'
 
 // copied from Array methods type definition
 // didn't know a better way :/

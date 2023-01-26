@@ -1,7 +1,4 @@
-import { Maybe } from '../maybe/maybe'
-import { pipe } from '../pipe/pipe'
-import { none } from '../primitives/none'
-import { some } from '../primitives/some'
+import { Maybe, none, pipe, some } from '../..'
 
 export type Lookup<T> = {
   set: (key: string, value: T) => Lookup<T>

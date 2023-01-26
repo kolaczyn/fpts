@@ -1,5 +1,4 @@
-import { noneObj } from '../testing/none-testing'
-import { someObj } from '../testing/some.testing'
+import { noneObj, someObj } from '../..'
 import { lookup } from './lookup'
 
 test('lookup', () => {

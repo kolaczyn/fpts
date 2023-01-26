@@ -1,4 +1,4 @@
-export { Lookup, lookup } from './lookup/lookup'
+export { Lookup, lookup } from './record/lookup/lookup'
 export {
   Maybe,
   isNone,
@@ -8,16 +8,19 @@ export {
   unwrapOr,
 } from './maybe/maybe'
 export { Result, isErr, isOk, resultCatch, toOk } from './result/result'
-export { arrayAt } from './arrayAt/arrayAt'
-export { filterObject } from './filterObject/filterObject'
-export { mapObject } from './mapObject/mapObject'
-export { none, None } from './primitives/none'
-export { pipe } from './pipe/pipe'
-export { Tuple } from './types/tuple'
-export { range } from './range/range'
-export { recordGet } from './recordGet/recordGet'
-export { some, Some } from './primitives/some'
+export { arrayAt } from './arr/arrayAt/arrayAt'
+export { filterObject } from './record/filterObject/filterObject'
+export { mapObject } from './record/mapObject/mapObject'
+export { none, None } from './maybe/none'
+export { pipe } from './fn/pipe/pipe'
+export { Tuple } from './arr/tuple/tuple'
+export { range } from './arr/range/range'
+export { recordGet } from './record/recordGet/recordGet'
+export { some, Some } from './maybe/some'
 export { store, Action, Reducer, Store } from './store/store'
 export { toNumber } from './toNumber/toNumber'
-export { zip } from './zip/zip'
-export { tupleEq } from './tupleEq/tupleEq'
+export { zip } from './arr/zip/zip'
+export { tupleEq } from './arr//tupleEq/tupleEq'
+
+export { noneObj } from './test/none-testing'
+export { someObj } from './test/some.testing'

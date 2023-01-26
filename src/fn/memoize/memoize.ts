@@ -1,5 +1,4 @@
-import { isSome, Maybe } from '../maybe/maybe'
-import { recordGet } from '../recordGet/recordGet'
+import { isSome, Maybe, recordGet } from '../..'
 
 type Fn = (n: number) => number
 

@@ -1,4 +1,4 @@
-import { Tuple } from '../types/tuple'
+import { Tuple } from '../tuple/tuple'
 
 export const zip = <A, B, N extends number>(
   arr1: Tuple<A, N>,

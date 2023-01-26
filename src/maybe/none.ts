@@ -1,4 +1,4 @@
-import { Maybe } from '../maybe/maybe'
+import { Maybe } from './maybe'
 
 export type None<T> = {
   none: 'none'

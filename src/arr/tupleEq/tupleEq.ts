@@ -1,5 +1,4 @@
-import { Tuple } from '../types/tuple'
-import { zip } from '../zip/zip'
+import { Tuple, zip } from '../..'
 
 export const tupleEq = <T extends string | number | boolean, N extends number>(
   arr1: Tuple<T, N>,

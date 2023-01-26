@@ -1,6 +1,6 @@
-import { err } from '../primitives/error'
-import { ok } from '../primitives/ok'
-import { someObj } from '../testing/some.testing'
+import { err } from './error'
+import { ok } from './ok'
+import { someObj } from '../test/some.testing'
 import { isErr, isOk, resultCatch, toOk } from './result'
 
 describe('result', () => {

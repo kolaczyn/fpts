@@ -1,4 +1,4 @@
-import { isSome, Maybe } from '../maybe/maybe'
+import { isSome, Maybe } from './maybe'
 import { none } from './none'
 
 export type Some<T> = {

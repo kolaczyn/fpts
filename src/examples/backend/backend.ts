@@ -1,6 +1,6 @@
 import { arrayAt, Maybe, pipe, some, unwrapOr } from '../..'
-import { arrayFind } from '../../arrayFind/arrayFind'
-import { get } from '../../extract/get'
+import { arrayFind } from '../../arr/arrayFind/arrayFind'
+import { get } from '../../record/get/get'
 import { dbInvoices, dbUsers } from './db'
 import { Invoice, User } from './types'
 

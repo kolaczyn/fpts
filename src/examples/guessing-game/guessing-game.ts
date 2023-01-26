@@ -1,5 +1,4 @@
-import { isNone, none } from '../..'
-import { arrayAt } from '../../arrayAt/arrayAt'
+import { arrayAt, isNone, none } from '../..'
 
 const cpuAnswers = {
   tooLow: 'looLow',

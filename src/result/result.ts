@@ -1,5 +1,5 @@
-import { Err, err } from '../primitives/error'
-import { Ok, ok } from '../primitives/ok'
+import { Err, err } from './error'
+import { Ok, ok } from './ok'
 
 export type Result<T> = Ok<T> | Err
 

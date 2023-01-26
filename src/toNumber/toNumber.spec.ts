@@ -1,5 +1,5 @@
-import { noneObj } from '../testing/none-testing'
-import { someObj } from '../testing/some.testing'
+import { noneObj } from '../test/none-testing'
+import { someObj } from '../test/some.testing'
 import { toNumber } from './toNumber'
 
 describe('to number', () => {

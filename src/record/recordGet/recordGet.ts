@@ -1,6 +1,4 @@
-import { Maybe } from '../maybe/maybe'
-import { none } from '../primitives/none'
-import { some } from '../primitives/some'
+import { Maybe, none, some } from '../..'
 
 export const recordGet = <K extends string | number, V>(
   record: Record<K, V>,

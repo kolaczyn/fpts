@@ -7,11 +7,11 @@ import {
   toSome,
   normalizeMaybe,
 } from './maybe'
-import { none } from '../primitives/none'
-import { some } from '../primitives/some'
-import { someObj } from '../testing/some.testing'
+import { none } from './none'
+import { some } from './some'
+import { someObj } from '../test/some.testing'
 import { toNumber } from '../toNumber/toNumber'
-import { noneObj } from '../testing/none-testing'
+import { noneObj } from '../test/none-testing'
 
 const getExampleSome = (): Maybe<number> => some(13)
 const getExampleNone = (): Maybe<number> => none()
