@@ -1,9 +1,9 @@
 import { Option, isNone, isSome, optionCatch, unwrapOr, toSome } from './option'
 import { none } from './none'
 import { some } from './some'
-import { someObj } from '../test/some.testing'
+import { testSome } from '../test/testSome'
 import { toNum } from '../str/toNum/toNum'
-import { noneObj } from '../test/none-testing'
+import { testNone } from '../test/testNone'
 
 const getExampleSome = (): Option<number> => some(13)
 const getExampleNone = (): Option<number> => none()
@@ -45,8 +45,8 @@ describe('option', () => {
     const fn = () => {
       throw new Error('error')
     }
-    expect(optionCatch(fn)).toMatchObject(noneObj())
-    expect(optionCatch(() => 39)).toMatchObject(someObj(39))
+    expect(optionCatch(fn)).toMatchObject(testNone())
+    expect(optionCatch(() => 39)).toMatchObject(testSome(39))
   })
 
   test('unwrap or', () => {
@@ -55,13 +55,13 @@ describe('option', () => {
   })
 
   test('dumb tests to hit 100% coverage', () => {
-    expect(toSome(21)).toMatchObject(someObj(21))
+    expect(toSome(21)).toMatchObject(testSome(21))
   })
 
   describe('bind & map', () => {
     test('some at the end', () => {
       const lol = some(99).map(x => x + 1)
-      expect(lol).toMatchObject(someObj(100))
+      expect(lol).toMatchObject(testSome(100))
     })
 
     test('none at the end', () => {
@@ -73,7 +73,7 @@ describe('option', () => {
         .bind(_ => none())
         .map(x => x)
 
-      expect(lol).toMatchObject(noneObj())
+      expect(lol).toMatchObject(testNone())
     })
   })
 })

@@ -24,5 +24,5 @@ export { toNum as toNumber } from './str/toNum/toNum'
 export { zip } from './arr/zip/zip'
 export { tupleEq } from './arr//tupleEq/tupleEq'
 
-export { noneObj } from './test/none-testing'
-export { someObj } from './test/some.testing'
+export { testNone } from './test/testNone'
+export { testSome } from './test/testSome'

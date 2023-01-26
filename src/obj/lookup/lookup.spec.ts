@@ -1,4 +1,4 @@
-import { noneObj, someObj } from '../..'
+import { testNone, testSome } from '../..'
 import { lookup } from './lookup'
 
 test('lookup', () => {
@@ -13,9 +13,9 @@ test('lookup', () => {
   expect(exampleLookup1.getOr('foo', 'bar')).toEqual('bar')
   expect(exampleLookup1.getOr('hello', 'bar')).toEqual('world')
 
-  expect(exampleLookup1.get('hello')).toMatchObject(someObj('world'))
-  expect(exampleLookup1.get('hello')).toMatchObject(someObj('world'))
+  expect(exampleLookup1.get('hello')).toMatchObject(testSome('world'))
+  expect(exampleLookup1.get('hello')).toMatchObject(testSome('world'))
   const exampleLookup2 = exampleLookup1.set('foo', 'bar')
   const exampleLookup3 = exampleLookup2.remove('hello')
-  expect(exampleLookup3.get('hello')).toMatchObject(noneObj())
+  expect(exampleLookup3.get('hello')).toMatchObject(testNone())
 })

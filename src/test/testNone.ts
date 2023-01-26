@@ -1,5 +1,5 @@
-export const someObj = <T>(payload: T) => ({
-  some: payload,
+export const testNone = () => ({
+  none: 'none',
   bind: expect.any(Function),
   map: expect.any(Function),
 })

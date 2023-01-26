@@ -1,4 +1,4 @@
-import { noneObj, someObj } from '../..'
+import { testNone, testSome } from '../..'
 import { objGet } from './objGet'
 
 describe('objGet', () => {
@@ -7,7 +7,7 @@ describe('objGet', () => {
       hello: 'world',
     }
 
-    expect(objGet(record, 'hello')).toEqual(someObj('world'))
+    expect(objGet(record, 'hello')).toEqual(testSome('world'))
   })
 
   test('doesnt exist', () => {
@@ -15,6 +15,6 @@ describe('objGet', () => {
       hello: 'world',
     }
 
-    expect(objGet(record, 'koko')).toMatchObject(noneObj())
+    expect(objGet(record, 'koko')).toMatchObject(testNone())
   })
 })
