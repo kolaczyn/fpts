@@ -1,5 +1,6 @@
-import { arrayAt, Maybe, some } from '../..'
+import { arrayAt, Maybe, pipe, some, unwrapOr } from '../..'
 import { arrayFind } from '../../arrayFind/arrayFind'
+import { get } from '../../extract/get'
 import { dbInvoices, dbUsers } from './db'
 import { Invoice, User } from './types'
 
@@ -12,6 +13,15 @@ const getInvoiceById = (id: string): Maybe<Invoice> =>
 
 export const getLatestUserInvoiceAmount = (userId: number) =>
   getUserById(userId)
-    .bind(user => arrayAt(user.invoices, 0))
+    .map(get('invoices'))
+    .bind(invoices => arrayAt(invoices, 0))
     .bind(invoiceId => getInvoiceById(invoiceId))
     .map(invoice => invoice.amount)
+
+const getInvoiceAmountWithFallback = (invoiceId: string): number =>
+  pipe(getInvoiceById(invoiceId).map(get('amount')), invoice => unwrapOr(invoice, 0))
+
+export const getAllUserInvoicesAmount = (userId: number) =>
+  getUserById(userId)
+    .map(get('invoices'))
+    .map(invoices => invoices.reduce((acc, id) => getInvoiceAmountWithFallback(id) + acc, 0))

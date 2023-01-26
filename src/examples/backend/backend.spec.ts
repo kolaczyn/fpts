@@ -1,6 +1,6 @@
 import { noneObj } from '../../testing/none-testing'
 import { someObj } from '../../testing/some.testing'
-import { getLatestUserInvoiceAmount } from './backend'
+import { getAllUserInvoicesAmount, getLatestUserInvoiceAmount } from './backend'
 
 describe('backend', () => {
   describe('getLatestUserInvoiceAmount', () => {
@@ -10,5 +10,9 @@ describe('backend', () => {
     test('invalid user', () => {
       expect(getLatestUserInvoiceAmount(99999)).toMatchObject(noneObj())
     })
+  })
+
+  test('getAllUserInvoices', () => {
+    expect(getAllUserInvoicesAmount(3)).toMatchObject(someObj(100))
   })
 })
