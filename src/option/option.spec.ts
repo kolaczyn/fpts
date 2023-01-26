@@ -1,12 +1,4 @@
-import {
-  Option,
-  isNone,
-  isSome,
-  maybeCatch,
-  unwrapOr,
-  toSome,
-  normalizeMaybe,
-} from './option'
+import { Option, isNone, isSome, optionCatch, unwrapOr, toSome } from './option'
 import { none } from './none'
 import { some } from './some'
 import { someObj } from '../test/some.testing'
@@ -28,6 +20,7 @@ describe('option', () => {
     // jest throws errors if there are no tests, so here's a dummy one :p
     expect(true).toBeTruthy()
   })
+
   test('some', () => {
     const maybe = getExampleSome()
 
@@ -52,8 +45,8 @@ describe('option', () => {
     const fn = () => {
       throw new Error('error')
     }
-    expect(maybeCatch(fn)).toMatchObject(noneObj())
-    expect(maybeCatch(() => 39)).toMatchObject(someObj(39))
+    expect(optionCatch(fn)).toMatchObject(noneObj())
+    expect(optionCatch(() => 39)).toMatchObject(someObj(39))
   })
 
   test('unwrap or', () => {
@@ -63,19 +56,6 @@ describe('option', () => {
 
   test('dumb tests to hit 100% coverage', () => {
     expect(toSome(21)).toMatchObject(someObj(21))
-  })
-
-  test('normalize maybe', () => {
-    expect(normalizeMaybe(some(21))).toMatchObject(someObj(21))
-    expect(normalizeMaybe(some(null))).toMatchObject(someObj(null))
-
-    expect(normalizeMaybe(null)).toMatchObject(someObj(null))
-    expect(normalizeMaybe(none())).toMatchObject(noneObj())
-    expect(normalizeMaybe(21)).toMatchObject(someObj(21))
-
-    expect(normalizeMaybe({ hello: 'world' })).toMatchObject(
-      someObj({ hello: 'world' })
-    )
   })
 
   describe('bind & map', () => {

@@ -4,7 +4,7 @@ export {
   isNone,
   isSome,
   toSome,
-  maybeCatch,
+  optionCatch,
   unwrapOr,
 } from './option/option'
 export { Result, isErr, isOk, resultCatch, toOk } from './result/result'
