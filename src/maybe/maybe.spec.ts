@@ -10,7 +10,7 @@ import {
 import { none } from './none'
 import { some } from './some'
 import { someObj } from '../test/some.testing'
-import { toNumber } from '../toNumber/toNumber'
+import { toNum } from '../str/toNum/toNum'
 import { noneObj } from '../test/none-testing'
 
 const getExampleSome = (): Maybe<number> => some(13)
@@ -88,7 +88,7 @@ describe('maybe', () => {
       const lol = some('100')
         .bind(x => some(x + 1))
         .map(x => `${x}--`)
-        .bind(x => toNumber(x))
+        .bind(x => toNum(x))
         .map(x => `->${x}`)
         .bind(_ => none())
         .map(x => x)
