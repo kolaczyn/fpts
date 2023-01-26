@@ -1,5 +1,12 @@
 export { Lookup, lookup } from './lookup/lookup'
-export { Maybe, isNone, isSome, toSome, maybeCatch, unwrapOr } from './maybe/maybe'
+export {
+  Maybe,
+  isNone,
+  isSome,
+  toSome,
+  maybeCatch,
+  unwrapOr,
+} from './maybe/maybe'
 export { Result, isErr, isOk, resultCatch, toOk } from './result/result'
 export { arrayAt } from './arrayAt/arrayAt'
 export { filterObject } from './filterObject/filterObject'
