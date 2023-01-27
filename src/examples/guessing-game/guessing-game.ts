@@ -1,5 +1,4 @@
-import { isNone, none } from '../..'
-import { arrayAt } from '../../arrayAt/arrayAt'
+import { arrAt, isNone, none } from '../..'
 
 const cpuAnswers = {
   tooLow: 'looLow',
@@ -33,7 +32,7 @@ const initState = (correctAnswer: number): GameState => ({
 })
 
 const _getAnswerFromCpu = (gameState: GameState) => {
-  const lastTurn = arrayAt(gameState.turns, -1)
+  const lastTurn = arrAt(gameState.turns, -1)
   if (isNone(lastTurn)) {
     return cpuAnswers.youShouldAskFirst
   }

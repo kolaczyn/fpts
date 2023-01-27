@@ -1,12 +1,12 @@
-import { err } from '../primitives/error'
-import { ok } from '../primitives/ok'
-import { someObj } from '../testing/some.testing'
+import { err } from './error'
+import { ok } from './ok'
+import { testSome } from '../test/testSome'
 import { isErr, isOk, resultCatch, toOk } from './result'
 
 describe('result', () => {
   test('ok', () => {
     const fn = () => 901
-    expect(resultCatch(fn)).toMatchObject(someObj(901))
+    expect(resultCatch(fn)).toMatchObject(testSome(901))
   })
 
   describe('resultCatch', () => {
@@ -45,6 +45,6 @@ describe('result', () => {
     expect(isErr(err('lol error'))).toEqual(true)
     expect(isErr(ok(69))).toEqual(false)
     expect(isOk(ok(69))).toEqual(true)
-    expect(toOk('loli')).toMatchObject(someObj('loli'))
+    expect(toOk('loli')).toMatchObject(testSome('loli'))
   })
 })

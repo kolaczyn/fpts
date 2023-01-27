@@ -1,23 +1,28 @@
-export { Lookup, lookup } from './lookup/lookup'
+export { Lookup, lookup } from './obj/lookup/lookup'
 export {
-  Maybe,
+  Option,
   isNone,
   isSome,
   toSome,
-  maybeCatch,
+  optionCatch,
   unwrapOr,
-} from './maybe/maybe'
+} from './option/option'
 export { Result, isErr, isOk, resultCatch, toOk } from './result/result'
-export { arrayAt } from './arrayAt/arrayAt'
-export { filterObject } from './filterObject/filterObject'
-export { mapObject } from './mapObject/mapObject'
-export { none, None } from './primitives/none'
-export { pipe } from './pipe/pipe'
-export { Tuple } from './types/tuple'
-export { range } from './range/range'
-export { recordGet } from './recordGet/recordGet'
-export { some, Some } from './primitives/some'
+export { arrAt } from './arr/arrAt/arrayAt'
+export { arrFind } from './arr/arrFind/arrFind'
+export { get } from './obj/get/get'
+export { objFilter } from './obj/objFilter/objFilter'
+export { objMap } from './obj/objMap/objMap'
+export { none, None } from './option/none'
+export { pipe } from './fn/pipe/pipe'
+export { Tuple } from './arr/tuple/tuple'
+export { range } from './arr/range/range'
+export { objGet } from './obj/objGet/objGet'
+export { some, Some } from './option/some'
 export { store, Action, Reducer, Store } from './store/store'
-export { toNumber } from './toNumber/toNumber'
-export { zip } from './zip/zip'
-export { tupleEq } from './tupleEq/tupleEq'
+export { toNum as toNumber } from './str/toNum/toNum'
+export { zip } from './arr/zip/zip'
+export { tupleEq } from './arr//tupleEq/tupleEq'
+
+export { testNone } from './test/testNone'
+export { testSome } from './test/testSome'

@@ -11,7 +11,7 @@
     "lint": "eslint src",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
-    "ci": "run-p -cl format lint types test"
+    "ci": "run-p --aggregate-output -c format lint types test"
   },
   "devDependencies": {
     "@swc/core": "^1.3.28",

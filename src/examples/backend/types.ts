@@ -1,4 +1,4 @@
-import { Maybe } from '../..'
+import { Option } from '../..'
 
 export type Gender = 'male' | 'female' | 'other'
 
@@ -6,7 +6,7 @@ export type User = {
   id: number
   name: string
   age: number
-  gender: Maybe<Gender>
+  gender: Option<Gender>
   invoices: string[]
 }
 
