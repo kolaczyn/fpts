@@ -21,7 +21,7 @@ export const dbUsers: User[] = [
     age: 10,
     name: 'Carl',
     gender: some<Gender>('male'),
-    invoices: ['666', '777', '888'],
+    invoices: ['666', '777', '888', '404'],
   },
 ]
 
