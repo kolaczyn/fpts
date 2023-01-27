@@ -1,26 +1,26 @@
 import { none, some } from '../..'
-import { Invoice, User } from './types'
+import { Gender, Invoice, User } from './types'
 
 export const dbUsers: User[] = [
   {
     id: 1,
     age: 21,
     name: 'Damian',
-    gender: none(),
+    gender: none<Gender>(),
     invoices: ['123', '987'],
   },
   {
     id: 2,
     age: 30,
     name: 'Blaine',
-    gender: some('other'),
+    gender: some<Gender>('female'),
     invoices: [],
   },
   {
     id: 3,
     age: 10,
     name: 'Carl',
-    gender: some('male'),
+    gender: some<Gender>('male'),
     invoices: ['666', '777', '888'],
   },
 ]

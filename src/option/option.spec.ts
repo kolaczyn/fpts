@@ -1,4 +1,4 @@
-import { Option, isNone, isSome, optionCatch, unwrapOr, toSome } from './option'
+import { Option, isNone, isSome, optionCatch, toSome } from './option'
 import { none } from './none'
 import { some } from './some'
 import { testSome } from '../test/testSome'
@@ -47,11 +47,6 @@ describe('option', () => {
     }
     expect(optionCatch(fn)).toMatchObject(testNone())
     expect(optionCatch(() => 39)).toMatchObject(testSome(39))
-  })
-
-  test('unwrap or', () => {
-    expect(unwrapOr(some(6), 9)).toEqual(6)
-    expect(unwrapOr(none(), 9)).toEqual(9)
   })
 
   test('dumb tests to hit 100% coverage', () => {

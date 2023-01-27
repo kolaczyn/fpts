@@ -1,4 +1,4 @@
-import { arrAt, arrFind, get, Option, pipe, some, unwrapOr } from '../..'
+import { arrAt, arrFind, get, Option, some } from '../..'
 import { dbInvoices, dbUsers } from './db'
 import { Invoice, User } from './types'
 
@@ -19,14 +19,15 @@ export const getLatestUserInvoiceAmount = (userId: number) =>
     .bind(invoiceId => getInvoiceById(invoiceId))
     .map(get('amount'))
 
-const getInvoiceAmountWithFallback = (invoiceId: string): number =>
-  pipe(getInvoiceById(invoiceId).map(get('amount')), invoice =>
-    unwrapOr(invoice, 0)
-  )
-
 export const getAllUserInvoicesAmount = (userId: number) =>
   getUserById(userId)
     .map(get('invoices'))
     .map(invoices =>
-      invoices.reduce((acc, id) => getInvoiceAmountWithFallback(id) + acc, 0)
+      invoices.reduce(
+        (sum, invoiceId) =>
+          getInvoiceById(invoiceId).map(get('amount')).unwrapOr(0) + sum,
+        0
+      )
     )
+    .map(amount => `user no.${userId} has grand total of ${amount}`)
+    .unwrapOr('Something went wrong')
