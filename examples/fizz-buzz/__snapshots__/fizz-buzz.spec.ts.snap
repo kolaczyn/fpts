@@ -1,7 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`fizz-buzz 1`] = `
-"1
+exports[`fizz-buzz handles invalid input 1`] = `"Invalid input"`;
+
+exports[`fizz-buzz print 100 fizzbuzz lines 1`] = `
+"Fizzbuzz
+1
 2
 Fizz
 4
@@ -99,6 +102,5 @@ Buzz
 Fizz
 97
 98
-Fizz
-Buzz"
+Fizz"
 `;

@@ -12,20 +12,28 @@ const getInvoiceById = (id: string): Option<Invoice> =>
     arrFind(invoices, invoice => invoice.id === id)
   )
 
+const db = {
+  getAllUsersFromDb,
+  getAllInvoicesFromDb,
+  getUserById,
+  getInvoiceById,
+}
+
 export const getLatestUserInvoiceAmount = (userId: number) =>
   getUserById(userId)
     .map(get('invoices'))
     .bind(invoices => arrAt(invoices, 0))
-    .bind(invoiceId => getInvoiceById(invoiceId))
+    .bind(invoiceId => db.getInvoiceById(invoiceId))
     .map(get('amount'))
 
 export const getAllUserInvoicesAmount = (userId: number) =>
-  getUserById(userId)
+  db
+    .getUserById(userId)
     .map(get('invoices'))
     .map(invoices =>
       invoices.reduce(
         (sum, invoiceId) =>
-          getInvoiceById(invoiceId).map(get('amount')).unwrapOr(0) + sum,
+          sum + db.getInvoiceById(invoiceId).map(get('amount')).unwrapOr(0),
         0
       )
     )

@@ -1,5 +1,11 @@
 import { fizzBuzz } from './fizz-buzz'
 
-test('fizz-buzz', () => {
-  expect(fizzBuzz()).toMatchSnapshot()
+describe('fizz-buzz', () => {
+  it('print 100 fizzbuzz lines', () => {
+    expect(fizzBuzz('100')).toMatchSnapshot()
+  })
+
+  it('handles invalid input', () => {
+    expect(fizzBuzz('Nagatoro best girl')).toMatchSnapshot()
+  })
 })
