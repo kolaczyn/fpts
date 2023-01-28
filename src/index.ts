@@ -1,12 +1,5 @@
 export { Lookup, lookup } from './obj/lookup/lookup'
-export {
-  Option,
-  isNone,
-  isSome,
-  toSome,
-  optionCatch,
-  unwrapOr,
-} from './option/option'
+export { Option, isNone, isSome, toSome, optionCatch } from './option/option'
 export { Result, isErr, isOk, resultCatch, toOk } from './result/result'
 export { arrAt } from './arr/arrAt/arrayAt'
 export { arrFind } from './arr/arrFind/arrFind'

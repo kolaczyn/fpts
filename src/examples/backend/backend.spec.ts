@@ -13,6 +13,12 @@ describe('backend', () => {
   })
 
   test('getAllUserInvoices', () => {
-    expect(getAllUserInvoicesAmount(3)).toMatchObject(testSome(100))
+    expect(getAllUserInvoicesAmount(3)).toEqual(
+      'user no.3 has grand total of 100'
+    )
+  })
+
+  test('getAllUserInvoices if user not found', () => {
+    expect(getAllUserInvoicesAmount(9)).toEqual('Something went wrong')
   })
 })

@@ -9,5 +9,5 @@ export const arrFind = <T>(
   predicate: FindPredicate<T>
 ): Option<T> => {
   const element = arr.find(predicate)
-  return element === undefined ? none() : some(element)
+  return element === undefined ? none<T>() : some<T>(element)
 }

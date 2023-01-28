@@ -5,6 +5,7 @@ export type Some<T> = {
   some: T
   bind: <U>(fn: (t: T) => Option<U>) => Option<U>
   map: <U>(fn: (t: T) => U) => Option<U>
+  unwrapOr: (fallback: T) => T
 }
 
 export const some = <T>(payload: T): Some<T> => ({
@@ -14,4 +15,5 @@ export const some = <T>(payload: T): Some<T> => ({
     const result = fn(payload)
     return isSome(result) ? result : none()
   },
+  unwrapOr: _fallback => payload,
 })

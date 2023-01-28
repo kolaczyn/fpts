@@ -16,6 +16,3 @@ export const optionCatch = <T>(fn: () => T) => {
     return none()
   }
 }
-
-export const unwrapOr = <T>(payload: Option<T>, fallback: T) =>
-  isSome(payload) ? payload.some : fallback
