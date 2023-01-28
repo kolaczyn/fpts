@@ -1,4 +1,4 @@
-import { Option, none, some } from '../..'
+import { Option, none, some } from '~'
 
 export const objGet = <K extends string | number, V>(
   record: Record<K, V>,

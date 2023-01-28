@@ -1,4 +1,4 @@
-import { arrAt, arrFind, get, Option, some } from '../..'
+import { arrAt, arrFind, get, Option, some } from '~'
 import { dbInvoices, dbUsers } from './db'
 import { Invoice, User } from './types'
 

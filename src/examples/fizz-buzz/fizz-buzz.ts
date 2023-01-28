@@ -1,5 +1,4 @@
-import { pipe } from '../../fn/pipe/pipe'
-import { range } from '../../arr/range/range'
+import { pipe, range } from '~'
 
 export const fizzBuzz = () =>
   range(100)

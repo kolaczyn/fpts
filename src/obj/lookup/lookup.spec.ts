@@ -1,4 +1,4 @@
-import { testNone, testSome } from '../..'
+import { testNone, testSome } from '~'
 import { lookup } from './lookup'
 
 test('lookup', () => {

@@ -15,6 +15,10 @@ module.exports = {
       statements: 100,
     },
   },
+  moduleNameMapper: {
+    '^~': '<rootDir>/src',
+    '^~/(.*)': '<rootDir>/src/$1',
+  },
   transform: {
     '^.+\\.(t|j)sx?$': ['@swc/jest'],
   },

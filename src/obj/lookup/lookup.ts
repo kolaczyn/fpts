@@ -1,4 +1,4 @@
-import { Option, none, pipe, some } from '../..'
+import { Option, none, pipe, some } from '~'
 
 export type Lookup<T> = {
   set: (key: string, value: T) => Lookup<T>

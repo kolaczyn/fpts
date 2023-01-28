@@ -1,5 +1,4 @@
-import { testNone } from '../../test/testNone'
-import { testSome } from '../../test/testSome'
+import { testNone, testSome } from '~'
 import { getAllUserInvoicesAmount, getLatestUserInvoiceAmount } from './backend'
 
 describe('backend', () => {

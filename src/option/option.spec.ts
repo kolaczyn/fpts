@@ -1,9 +1,7 @@
+import { testSome, toNum, testNone } from '~'
 import { Option, isNone, isSome, optionCatch, toSome } from './option'
 import { none } from './none'
 import { some } from './some'
-import { testSome } from '../test/testSome'
-import { toNum } from '../str/toNum/toNum'
-import { testNone } from '../test/testNone'
 
 const getExampleSome = (): Option<number> => some(13)
 const getExampleNone = (): Option<number> => none()

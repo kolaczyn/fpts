@@ -1,4 +1,4 @@
-import { testNone, testSome } from '../..'
+import { testNone, testSome } from '~'
 import { objGet } from './objGet'
 
 describe('objGet', () => {

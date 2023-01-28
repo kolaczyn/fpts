@@ -1,4 +1,4 @@
-import { none, some } from '../..'
+import { none, some } from '~'
 import { Gender, Invoice, User } from './types'
 
 export const dbUsers: User[] = [

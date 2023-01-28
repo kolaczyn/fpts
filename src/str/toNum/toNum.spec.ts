@@ -1,5 +1,4 @@
-import { testNone } from '../..'
-import { testSome } from '../..'
+import { testNone, testSome } from '~'
 import { toNum } from './toNum'
 
 describe('toNum', () => {

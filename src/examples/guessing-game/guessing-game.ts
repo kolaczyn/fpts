@@ -1,4 +1,4 @@
-import { arrAt, isNone, none } from '../..'
+import { arrAt, isNone, none } from '~'
 
 const cpuAnswers = {
   tooLow: 'looLow',

@@ -1,4 +1,4 @@
-import { isSome, Option, objGet } from '../..'
+import { isSome, objGet, Option } from '~'
 
 type Fn = (n: number) => number
 
