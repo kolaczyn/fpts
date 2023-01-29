@@ -9,5 +9,4 @@ export const none = <T>(): None<T> => ({
   bind: _fn => none(),
   map: _fn => none(),
   unwrapOr: fallback => fallback,
-  mapAsync: _fn => Promise.resolve(none()),
 })

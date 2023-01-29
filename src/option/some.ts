@@ -14,5 +14,4 @@ export const some = <T>(payload: T): Some<T> => ({
     return isSome(result) ? result : none()
   },
   unwrapOr: _fallback => payload,
-  mapAsync: async fn => some(await fn(payload)),
 })
