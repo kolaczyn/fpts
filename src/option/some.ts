@@ -1,12 +1,10 @@
-import { isSome, Option } from './option'
+import { isSome } from './option'
 import { none } from './none'
+import { OptionCommon } from './common'
 
 export type Some<T> = {
   some: T
-  bind: <U>(fn: (t: T) => Option<U>) => Option<U>
-  map: <U>(fn: (t: T) => U) => Option<U>
-  unwrapOr: (fallback: T) => T
-}
+} & OptionCommon<T>
 
 export const some = <T>(payload: T): Some<T> => ({
   some: payload,
